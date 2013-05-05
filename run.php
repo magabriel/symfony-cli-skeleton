@@ -4,7 +4,6 @@
  */
 namespace YourNamespace;
 
-use YourNamespace\Console\Command;
 use Skel\DependencyInjection\Application;
 
 // the autoloader
