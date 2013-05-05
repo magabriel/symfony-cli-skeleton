@@ -1,0 +1,11 @@
+imports:
+- { resource: build.yml }
+- { resource: services.yml }
+
+parameters:
+  application: 
+    name:         Symfony CLI skeleton
+    slug:         symcliskel    # Used to name the built phar
+    description:  "Basic skeleton for building Symfony Command Line Interface (CLI) applications"
+
+

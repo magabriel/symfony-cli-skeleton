@@ -1,0 +1,9 @@
+services:
+  filesystem:
+    class: Symfony\Component\Filesystem\Filesystem
+    
+  finder: 
+    class: Symfony\Component\Finder\Finder
+    
+  version:
+    class: Skel\Lib\Version
