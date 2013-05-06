@@ -1,7 +1,8 @@
 <?php
 namespace Skel\DependencyInjection;
 
-use Skel\Lib\ErrorHandler;
+git use Skel\Lib\ErrorHandler;
+use Symfony\Component\Finder\Finder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -67,17 +68,16 @@ class Application extends \Symfony\Component\Console\Application
         foreach ($namespaces as $namespace => $path) {
             if ($namespace == $baseNamespaceName) {
                 // add all existing commands
-                $finder = $this->container->get('finder');
                 $commandPath = $path . '/' . $namespace . '/Console/Command/';
                 if (is_dir($commandPath)) {
-                    $files = $finder->files()->name('*Command.php')->in($path . '/' . $namespace . '/Console/Command/');
-
+                    $files = Finder::create()->files()->name('*Command.php')->in($path . '/' . $namespace . '/Console/Command/');
                     foreach ($files as $file) {
                         $className = $file->getBasename('.php'); // strip .php extension
                         $r = new \ReflectionClass($baseNamespaceName . '\Console\Command' . '\\' . $className);
                         $this->add($r->newInstance());
                     }
                 }
+                break;
             }
         }
 
