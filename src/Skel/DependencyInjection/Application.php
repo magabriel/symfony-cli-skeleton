@@ -1,7 +1,7 @@
 <?php
 namespace Skel\DependencyInjection;
 
-git use Skel\Lib\ErrorHandler;
+use Skel\Lib\ErrorHandler;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
@@ -65,21 +65,22 @@ class Application extends \Symfony\Component\Console\Application
         $namespaces = include $paths['root'] . '/vendor/composer/autoload_namespaces.php';
 
         // find the path for the namespace
-        foreach ($namespaces as $namespace => $path) {
+        foreach ($namespaces as $namespace => $lookupPaths) {
             if ($namespace == $baseNamespaceName) {
                 // add all existing commands
-                $commandPath = $path . '/' . $namespace . '/Console/Command/';
-                if (is_dir($commandPath)) {
-                    $files = Finder::create()->files()->name('*Command.php')->in($path . '/' . $namespace . '/Console/Command/');
-                    foreach ($files as $file) {
-                        $className = $file->getBasename('.php'); // strip .php extension
-                        $r = new \ReflectionClass($baseNamespaceName . '\Console\Command' . '\\' . $className);
-                        $this->add($r->newInstance());
+                foreach ($lookupPaths as $path) {
+                    $commandPath = $path . '/' . $namespace . '/Console/Command/';
+                    if (is_dir($commandPath)) {
+                        $files = Finder::create()->files()->name('*Command.php')->in($path . '/' . $namespace . '/Console/Command/');
+                        foreach ($files as $file) {
+                            $className = $file->getBasename('.php'); // strip .php extension
+                            $r = new \ReflectionClass($baseNamespaceName . '\Console\Command' . '\\' . $className);
+                            $this->add($r->newInstance());
+                        }
                     }
                 }
-                break;
+            break;
             }
         }
-
     }
 }
