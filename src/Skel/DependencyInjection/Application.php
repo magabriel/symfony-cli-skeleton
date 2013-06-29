@@ -1,7 +1,7 @@
 <?php
 namespace Skel\DependencyInjection;
 
-git use Skel\Lib\ErrorHandler;
+use Skel\Lib\ErrorHandler;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
