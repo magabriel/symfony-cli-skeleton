@@ -75,7 +75,9 @@ class Application extends \Symfony\Component\Console\Application
                         foreach ($files as $file) {
                             $className = $file->getBasename('.php'); // strip .php extension
                             $r = new \ReflectionClass($baseNamespaceName . '\Console\Command' . '\\' . $className);
-                            $this->add($r->newInstance());
+                            if (!$r->isAbstract()) {
+                                $this->add($r->newInstance());
+                            }
                         }
                     }
                 }
