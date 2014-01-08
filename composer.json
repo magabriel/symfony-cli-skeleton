@@ -1,5 +1,5 @@
 {
-    "name": "symfony-cli-skeleton",
+    "name": "magabriel/symfony-cli-skeleton",
     "description": "Symfony CLI skeleton",
     "license": "MIT",
 	"require": {
