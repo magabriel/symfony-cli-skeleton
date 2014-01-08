@@ -3,6 +3,8 @@ symfony-cli-skeleton
 
 Basic skeleton for building a Symfony CLI application.
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/38ae73e9-1c58-451c-8f55-c508dc31da27/mini.png)](https://insight.sensiolabs.com/projects/38ae73e9-1c58-451c-8f55-c508dc31da27)
+
 License
 -------
 
