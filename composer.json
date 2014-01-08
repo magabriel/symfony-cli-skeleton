@@ -1,4 +1,7 @@
 {
+    "name": "symfony-cli-skeleton",
+    "description": "Symfony CLI skeleton",
+    "license": "MIT",
 	"require": {
 	    "symfony/console":                 "2.*",
 	    "symfony/filesystem":              "2.*",

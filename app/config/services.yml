@@ -1,6 +1,6 @@
 services:
   filesystem:
     class: Symfony\Component\Filesystem\Filesystem
-    
+
   version:
     class: Skel\Lib\Version

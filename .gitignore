@@ -4,3 +4,4 @@ composer.lock
 .buildpath
 .project
 .settings
+/nbproject/private/
